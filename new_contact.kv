@@ -1,0 +1,22 @@
+#: import actionbar actionbar
+#: import hex kivy.utils.get_color_from_hex
+
+<NewContactBoxLayout>:
+    orientation: 'vertical'
+    CustomActionBar:
+        ActionView:
+            ActionPrevious:
+                title: 'Créer contact'
+                on_release: app.manager.pop()
+                app_icon: ''
+    MDCard:
+        Image:
+            source: 'assets/img/black-avatar-user-icon.png'
+    MDBoxLayout:
+        orientation: 'vertical'
+        canvas.before:
+            Color:
+                rgb: 0,1,0
+            Rectangle:
+                pos:self.pos
+                size:self.size

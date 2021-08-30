@@ -2,30 +2,73 @@
     orientation: 'vertical'
     MDToolbar:
         title: 'contacts'
-        anchor_title: 'center'
+        anchor_title: 'left'
         left_action_items: [["menu"]]
-        right_action_items: [["menu"]]
+        right_action_items: [["magnify"]]
     MDRelativeLayout:
         ScrollView:
-            # canvas.before:
-            #     Color:
-            #         rgb: 0,0,1
-            #     Rectangle:
-            #         pos:self.pos
-            #         size:self.size
             pos_hint: {'top':1}
-            MDList:
-                OneLineAvatarListItem:
-                    text: 'Joule'
-                    on_release: app.manager.push('detail')
-                    IconLeftWidget:
-                        icon:'github'
-                OneLineAvatarListItem:
-                    text: 'Prescott'
-                    on_release: app.manager.push('detail')
-                    IconLeftWidget:
-                        icon:'github'
-        MDFloatingActionButtonSpeedDial:
-            size_hint: None,None
-            data: app.data
-            rotation_root_button: True
+            ContactNameContainer:
+                size_hint_y: None
+                adaptive_height: True
+                orientation: 'vertical'
+                # MDBoxLayout:
+                #     padding: dp(16)
+                #     spacing: dp(10)
+                #     size_hint_y: None
+                #     height: dp(56)
+                #     MDCard:
+                #         size_hint: None, None
+                #         width: dp(36)
+                #         height: self.width
+                #         pos_hint: {'center_y': .5}
+                #         FitImage:
+                #             source: 'assets/img/circled-user-icon.png'
+                #             size_hint_y: 1
+                #     MDLabel:
+                #         text: 'Joule'
+                #         size: self.texture_size
+                #         bold: True
+                ContactName:
+                ContactName:
+                ContactName:
+
+        MDFloatingActionButton:
+            size_hint: None, None
+            pos_hint: {'right': .98}
+            pos: [dp(self.parent.pos[0]) - dp(16), dp(self.parent.pos[1]) + dp(16)]
+            icon: 'plus'
+            on_release: app.manager.push('new_contact')
+
+
+
+
+
+
+
+<ContactNameContainer@MDBoxLayout>:
+    orientation: 'vertical'
+
+<ContactName@MDBoxLayout>:
+    padding: dp(16)
+    spacing: dp(10)
+    size_hint_y: None
+    height: dp(56)
+    # canvas.before:
+    #     Color:
+    #         rgb:1,0,0
+    #     Rectangle:
+    #         size:self.size
+    #         pos:self.pos
+    MDCard:
+        size_hint: None, None
+        width: dp(36)
+        height: self.width
+        pos_hint: {'center_y': .5}
+        FitImage:
+            source: 'assets/img/circled-user-icon.png'
+            size_hint_y: 1
+    MDLabel:
+        text: 'Joule'
+        size: self.texture_size
+        bold: True

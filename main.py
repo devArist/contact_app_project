@@ -2,6 +2,7 @@ from kivymd.app import MDApp
 from kivy.uix.screenmanager import ScreenManager
 from kivy import properties as p
 
+
 class ContactScreenManager(ScreenManager):
     screen_stack = []
 
